@@ -10,8 +10,8 @@ const routes = Router();
 
 routes.post('/', async (_req, res) => {
   try {
-    const deals = await PostRequestBlingService();
-    return res.status(200).json({ message: deals });
+    const response = await PostRequestBlingService();
+    return res.status(200).json({ message: response });
   } catch (error) {
     throw new AppError({
       message: error.message,
@@ -22,8 +22,8 @@ routes.post('/', async (_req, res) => {
 
 routes.get('/', async (_req, res) => {
   try {
-    const sales = await GetRequestsBlingService();
-    return res.status(200).json(sales);
+    const requests = await GetRequestsBlingService();
+    return res.status(200).json(requests);
   } catch (error) {
     throw new AppError({
       message: error.message,

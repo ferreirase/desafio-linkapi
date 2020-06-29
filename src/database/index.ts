@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 
 mongoose.connect(`mongodb://localhost/linkapi`, {
-  useMongoClient: true,
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 mongoose.Promise = global.Promise;
 

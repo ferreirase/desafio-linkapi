@@ -10,6 +10,7 @@ interface Deal {
   name: string;
   total_value: number;
   expected_close_date: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   products: Array<any>;
 }
 
