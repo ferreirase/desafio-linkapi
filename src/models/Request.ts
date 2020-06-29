@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose from '../database';
 
 const RequestSchema = new mongoose.Schema({
   client: {
