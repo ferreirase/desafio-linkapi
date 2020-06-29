@@ -6,7 +6,7 @@ import axios from 'axios';
 import AppError from '../errors/AppError';
 import GetRequestsPipedriveService from './GetRequestsPipedriveService';
 
-async function postSales(): Promise<string> {
+async function postRequest(): Promise<string> {
   try {
     const deals = await GetRequestsPipedriveService();
 
@@ -45,22 +45,20 @@ async function postSales(): Promise<string> {
       });
     });
 
-    const response: Array<any> = [];
-
     await Promise.all(
-      dealsWithXML.map(async deal =>
-        response.push(
+      dealsWithXML.map(
+        async deal =>
+          // eslint-disable-next-line no-return-await
           await axios.post(
             `${process.env.BASE_URL_POST_BLING}?apikey=${process.env.API_KEY_BLING}&xml=${deal.xml}`,
           ),
-        ),
       ),
     );
 
-    return 'pedidos de compra adicionados';
+    return 'pedidos adicionados';
   } catch (error) {
     throw new AppError({ message: error.message, statusCode: 400 });
   }
 }
 
-export default postSales;
+export default postRequest;

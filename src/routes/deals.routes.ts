@@ -1,6 +1,6 @@
 import { Router } from 'express';
-import PostSaleBlingService from '../services/PostSaleBlingService';
-import GetSalesBlingService from '../services/GetSalesBlingService';
+import PostRequestBlingService from '../services/PostRequestBlingService';
+import GetRequestsBlingService from '../services/GetRequestsBlingService';
 import AppError from '../errors/AppError';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
@@ -10,7 +10,7 @@ const routes = Router();
 
 routes.post('/', async (_req, res) => {
   try {
-    const deals = await PostSaleBlingService();
+    const deals = await PostRequestBlingService();
     return res.status(200).json({ message: deals });
   } catch (error) {
     throw new AppError({
@@ -22,7 +22,7 @@ routes.post('/', async (_req, res) => {
 
 routes.get('/', async (_req, res) => {
   try {
-    const sales = await GetSalesBlingService();
+    const sales = await GetRequestsBlingService();
     return res.status(200).json(sales);
   } catch (error) {
     throw new AppError({

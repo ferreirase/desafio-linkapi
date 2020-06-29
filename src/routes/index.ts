@@ -1,11 +1,11 @@
 import { Router } from 'express';
-import salesRoutes from './sales.routes';
+import dealsRoutes from './deals.routes';
 
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 require('dotenv').config();
 
 const routes = Router();
 
-routes.use('/deals', salesRoutes);
+routes.use('/deals', dealsRoutes);
 
 export default routes;
