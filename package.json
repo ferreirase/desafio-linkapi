@@ -44,7 +44,6 @@
 		"start": "nodemon src/server.ts",
 		"start:watch": "nodemon",
 		"build": "tsc",
-		"dev": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/server.ts",
-		"test": "nyc mocha -r ts-node/register src/tests/recipe.spec.ts"
+		"dev": "ts-node-dev --inspect=8181 --respawn --transpileOnly src/server.ts"
 	}
 }
