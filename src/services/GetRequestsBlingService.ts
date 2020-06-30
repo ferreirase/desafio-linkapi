@@ -3,7 +3,7 @@
 /* eslint-disable camelcase */
 import axios from 'axios';
 import AppError from '../errors/AppError';
-import RequestModel from '../models/Request';
+// import RequestModel from '../models/Request';
 
 async function getSales(): Promise<any> {
   try {
@@ -12,16 +12,6 @@ async function getSales(): Promise<any> {
     );
 
     const arrayRequests = requests.data.retorno.pedidos;
-
-    await Promise.all(
-      arrayRequests.map(async (request: any) => {
-        await RequestModel.create({
-          client: request.pedido.cliente.nome,
-          date: new Date(request.pedido.data),
-          total_value: Number(request.pedido.totalvenda),
-        });
-      }),
-    );
 
     return arrayRequests;
   } catch (error) {

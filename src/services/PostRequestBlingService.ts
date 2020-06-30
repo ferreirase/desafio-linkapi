@@ -4,12 +4,13 @@
 import urlencode from 'urlencode';
 import axios from 'axios';
 import AppError from '../errors/AppError';
-import GetRequestsPipedriveService from './GetRequestsPipedriveService';
+import GetDealsPipedriveService from './GetDealsPipedriveService';
 
 async function postRequest(): Promise<string> {
   try {
-    const deals = await GetRequestsPipedriveService();
+    const deals = await GetDealsPipedriveService();
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const dealsWithXML: Array<any> = [];
 
     deals.map(deal => {

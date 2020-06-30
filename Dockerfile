@@ -1,16 +1,11 @@
-FROM node:10.15.3-alpine
+FROM node:14-alpine
 
-WORKDIR /home/node/app
+WORKDIR /src
 
-COPY package*.json ./
-ADD package*.json ./
+ADD package.json /src
 
-RUN npm i
+RUN npm i --silent
 
-COPY . .
+ADD . /src
 
-EXPOSE 3333
-
-USER node
-
-CMD ["npm", "run", "dev", "--host", "0.0.0.0"]
+CMD npm run dev
